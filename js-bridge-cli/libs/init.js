@@ -1,3 +1,8 @@
+/*
+ * @name: 
+ * @msg: 
+ * @param: 
+ */
 const path = require('path');
 const fs = require('fs');
 const log = require('./log');
@@ -16,8 +21,8 @@ let spinner = null;
  * @Description: 创建文件夹
  * @Author: Lzx
  * @Date: 2020-05-10 15:08:26
- * @LastEditors: lzx
- * @LastEditTime: Do not Edit
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-05-11 16:33:55
  */
 function createDir() {
   return new Promise(resolve => {
@@ -40,10 +45,11 @@ function createDir() {
  */
 
 function downloadTemplate() {
-  spinner = ora('download template...').start();
+  spinner = ora('downloading template...').start();
   return new Promise(reslove => {
-    download('lizixin519/wxapp-template', basicDirectory, err => {
+    download('lizixin519/js-utils-template', basicDirectory, err => {
       if(err) {
+        console.log(err.HTTPError)
         log.error(err)
         exit(1, '', basicDirectory)
       }
